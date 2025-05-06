@@ -1,0 +1,42 @@
+{
+  "name": "Novitates_Extensions_ViewPDF",
+  "label": "View PDF",
+  "description": "View PDF content",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_ViewPDF",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Field label",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "width of the pdf in px or %",
+      "format": "TEXT"
+    },
+    {
+      "name": "height",
+      "label": "Height of the pdf in px",
+      "format": "NUMBER"
+    },
+    {
+      "name": "showToolbar",
+      "label": "Display PDF toolbar",
+      "format": "BOOLEAN",
+      "defaultValue": true
+    }
+  ],
+  "defaultConfig": {
+    "isContainerWidth": true,
+    "height": 400,
+    "width": "100%"
+  }
+}
