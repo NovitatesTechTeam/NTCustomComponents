@@ -1,0 +1,102 @@
+{
+  "name": "Novitates_Extensions_ModalButton",
+  "label": "Open modal",
+  "description": "Open modal onclick of button/link/icon",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_ModalButton",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "modalHeading",
+      "label": "Heading to be displayed in the modal window",
+      "format": "TEXT"
+    },
+    {
+      "name": "localAction",
+      "label": "Local Action ID",
+      "format": "TEXT"
+    },
+    {
+      "name": "datapageName",
+      "label": "Data page name for Modal context",
+      "format": "TEXT"
+    },
+    {
+      "name": "variant",
+      "label": "Variant",
+      "format": "SELECT",
+      "defaultValue": "link",
+      "source": [
+        {
+          "key": "link",
+          "value": "Link"
+        },
+        {
+          "key": "primaryButton",
+          "value": "Primary Button"
+        },
+        {
+          "key": "secondaryButton",
+          "value": "Secondary Button"
+        },
+        {
+          "key": "icon",
+          "value": "Icon"
+        }
+      ]
+    },
+    {
+      "name": "buttonLabel",
+      "label": "Button/Link label",
+      "format": "TEXT",
+      "visibility": "$this.variant != 'icon'"
+    },
+    {
+      "name": "iconName",
+      "label": "Icon Name (Refer to https://design.pega.com/design/icon for various icon names)",
+      "visibility": "$this.variant == 'icon'",
+      "format": "SELECT",
+      "defaultValue": "",
+      "source": [
+        {
+          "value": "Refresh/Reset",
+          "key": "reset"
+        },
+        {
+          "value": "Send",
+          "key": "send"
+        },
+        {
+          "value": "View",
+          "key": "eye-solid"
+        },
+        {
+          "value": "Download",
+          "key": "download"
+        },
+        {
+          "value": "Upload",
+          "key": "upload"
+        },
+        {
+          "value": "Open in New Tab",
+          "key": "open"
+        },
+        {
+          "value": "QR Code",
+          "key": "qr"
+        },
+        {
+          "value": "More",
+          "key": "more"
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {}
+}
