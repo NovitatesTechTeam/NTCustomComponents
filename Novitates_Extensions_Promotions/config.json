@@ -1,0 +1,39 @@
+{
+  "name": "Novitates_Extensions_Promotions",
+  "label": "Promotions",
+  "description": "",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_Promotions",
+  "type": "Widget",
+  "subtype": ["PAGE", "CASE"],
+  "properties": [
+    {
+      "name": "title",
+      "label": "Title",
+      "format": "TEXT",
+      "defaultValue": "Promotions Showcase"
+    },
+    {
+      "name": "dataPageName",
+      "label": "Data source for promotions",
+      "defaultValue": "D_DiscountList",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {}
+}
