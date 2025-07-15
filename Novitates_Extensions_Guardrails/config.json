@@ -1,0 +1,21 @@
+{
+  "name": "Novitates_Extensions_Guardrails",
+  "label": "Guardrails",
+  "description": "",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_Guardrails",
+  "type": "Widget",
+  "subtype": ["PAGE", "CASE"],
+  "icon": "OneColumnPage.svg",
+  "properties": [
+    {
+      "name": "title",
+      "label": "Label value",
+      "format": "TEXT"
+    }
+  ],
+  "defaultConfig": {}
+}
