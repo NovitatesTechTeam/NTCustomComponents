@@ -1,0 +1,28 @@
+{
+  "name": "Novitates_Extensions_MCP",
+  "label": "MCP tools",
+  "description": "",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_MCP",
+  "type": "Widget",
+  "subtype": ["PAGE", "CASE"],
+  "icon": "OneColumnPage.svg",
+  "properties": [
+    {
+      "name": "title",
+      "label": "Label value",
+      "format": "TEXT"
+    },
+    {
+      "name": "proxyNodeJSUrl",
+      "label": "Proxy Node URL to connect to MCP",
+      "format": "TEXT"
+    }
+  ],
+  "defaultConfig": {
+    "proxyNodeJSUrl": "https://9f13ae5686c2.ngrok.app"
+  }
+}
