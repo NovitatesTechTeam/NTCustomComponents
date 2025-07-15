@@ -1,0 +1,37 @@
+{
+  "name": "Novitates_Extensions_Milestones",
+  "label": "Milestones",
+  "description": "Milestones",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_Milestones",
+  "type": "Widget",
+  "subtype": ["PAGE", "CASE"],
+  "icon": "OneColumnPage.svg",
+  "properties": [
+    {
+      "name": "title",
+      "label": "Label value",
+      "format": "TEXT"
+    },
+    {
+      "name": "milestoneDPageName",
+      "label": "Label value",
+      "format": "TEXT",
+      "defaultValue": "D_MilestoneList"
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    }
+  ]
+}
