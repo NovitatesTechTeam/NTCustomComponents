@@ -1,0 +1,20 @@
+{
+  "name": "Novitates_Extensions_AutoSaveField",
+  "label": "AutoSave Field on change",
+  "description": "AutoSave Field on change",
+  "organization": "Novitates",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "Novitates_Extensions_AutoSaveField",
+  "type": "Field",
+  "subtype": "Text",
+  "properties": [
+    {
+      "name": "propertyName",
+      "label": "Name of the property to autosave on Change (example: '.pyDescription')",
+      "format": "TEXT"
+    }
+  ],
+  "defaultConfig": {}
+}
