@@ -1,0 +1,33 @@
+{
+  "name": "NT_Extensions_ShortcutLinks",
+  "label": "Shortcut Links",
+  "description": "The dynamic Shortcuts utility renders a list of links inside a card",
+  "organization": "NT",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "NT_Extensions_ShortcutLinks",
+  "type": "Widget",
+  "subtype": ["PAGE", "CASE"],
+  "properties": [
+    {
+      "name": "heading",
+      "label": "Heading",
+      "format": "TEXT"
+    },
+    {
+      "name": "dataPageName",
+      "label": "Data page to populate the shortcuts. [DPage.pyStatusValue] property should contain the JSON string",
+      "format": "TEXT"
+    },
+    {
+      "name": "showAsLink",
+      "label": "Display shortcut as link or plain text",
+      "format": "BOOLEAN",
+      "defaultValue": "true"
+    }
+  ],
+  "defaultConfig": {
+    "heading": "Shortcut Links"
+  }
+}
