@@ -1,0 +1,95 @@
+{
+  "name": "NT_Extensions_DisplayMultimedia",
+  "label": "Display Multimedia",
+  "description": "Display Multimedia",
+  "organization": "NT",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "NT_Extensions_DisplayMultimedia",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Field label",
+      "format": "TEXT"
+    },
+    {
+      "name": "type",
+      "label": "Media Type",
+      "format": "SELECT",
+      "defaultValue": "",
+      "source": [
+        {
+          "key": "barcode",
+          "value": "Bar Code"
+        },
+        {
+          "key": "image",
+          "value": "Image"
+        },
+        {
+          "key": "qr",
+          "value": "QR Code"
+        },
+        {
+          "key": "video",
+          "value": "Video"
+        }
+      ]
+    },
+    {
+      "name": "source",
+      "label": "Source",
+      "format": "SELECT",
+      "required": true,
+      "defaultValue": "",
+      "source": [
+        {
+          "key": "currentProperty",
+          "value": "Current Property"
+        },
+        {
+          "key": "dpage",
+          "value": "Data Page"
+        }
+      ]
+    },
+    {
+      "name": "dataPageName",
+      "label": "Data Page Name (Page Type)",
+      "visibility": "$this.source == 'dpage'",
+      "format": "TEXT"
+    },
+    {
+      "name": "dPageParam",
+      "format": "PROPERTY",
+      "label": "Data page Parameter value (key: pyGUID)",
+      "helperText": "Populate the base64 encoded string in 'pyStatusValue' proeprty of DPage",
+      "visibility": "$this.source == 'dpage'",
+      "match": "propertyRef"
+    },
+    {
+      "name": "hasEncodedString",
+      "label": "Property has base64 encoded string",
+      "defaultValue": false,
+      "format": "BOOLEAN",
+      "visibility": "$this.type == 'qr' || $this.type == 'barcode'"
+    },
+    {
+      "name": "width",
+      "label": "Width(%) [default: 100%]",
+      "defaultValue": "100%",
+      "format": "TEXT"
+    },
+    {
+      "name": "height",
+      "label": "Height(px) [default: 10px]",
+      "defaultValue": "10px",
+      "format": "TEXT"
+    }
+  ],
+  "defaultConfig": {}
+}
