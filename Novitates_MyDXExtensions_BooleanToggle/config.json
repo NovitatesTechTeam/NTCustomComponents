@@ -1,0 +1,151 @@
+{
+  "name": "Novitates_MyDXExtensions_BooleanToggle",
+  "label": "Boolean Toggle",
+  "description": "Boolean Toggle",
+  "organization": "Novitates",
+  "version": "01.01.01",
+  "library": "MyDXExtensions",
+  "componentKey": "Novitates_MyDXExtensions_BooleanToggle",
+  "type": "Field",
+  "subtype": "Text",
+  "subtypeLabel": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Field label",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "labelOption",
+      "label": "Field label",
+      "format": "SELECT",
+      "defaultValue": "custom",
+      "visibility": "@PLATFORMNAME != 'launchpad'",
+      "source": [
+        {
+          "key": "default",
+          "value": "Default"
+        },
+        {
+          "key": "custom",
+          "value": "Custom"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "label": "Custom field label",
+      "format": "VALUEINPUT",
+      "required": true,
+      "ruleType": "Paragraph",
+      "visibility": "@PLATFORMNAME != 'launchpad'"
+    },
+    {
+      "name": "readOnly",
+      "label": "Edit mode",
+      "format": "READONLY"
+    },
+    {
+      "label": "Column settings",
+      "format": "GROUP",
+      "visibility": "@VIEWTYPE == 'MultiRecordDisplayAsTable'",
+      "properties": [
+        {
+          "name": "columnWidth",
+          "label": "Column width",
+          "format": "SELECT",
+          "source": [
+            {
+              "key": "auto",
+              "value": "Auto"
+            },
+            {
+              "key": "custom",
+              "value": "Custom"
+            }
+          ]
+        },
+        {
+          "name": "width",
+          "label": "Width (px)",
+          "format": "NUMBER",
+          "visibility": "$this.columnWidth == 'custom'"
+        }
+      ]
+    },
+    {
+      "label": "Input settings",
+      "format": "GROUP",
+      "visibility": "(!readOnly = true)",
+      "properties": [
+        {
+          "name": "helperText",
+          "label": "Helper text",
+          "format": "TEXT"
+        },
+        {
+          "name": "toggleDisplayFormat",
+          "label": "Toggle Display Format",
+          "format": "SELECT",
+          "defaultValue": "YesNo",
+          "source": [
+            {
+              "key": "YesNo",
+              "value": "Yes/No"
+            },
+            {
+              "key": "TrueFalse",
+              "value": "True/False"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "required",
+          "label": "Required",
+          "format": "REQUIRED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "disabled",
+          "label": "Disabled",
+          "format": "DISABLED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    },
+    {
+      "label": "Advanced",
+      "format": "GROUP",
+      "collapsible": true,
+      "properties": [
+        {
+          "name": "testId",
+          "label": "Test ID",
+          "format": "TEXT",
+          "ignorePattern": "[^-_\\p{N}\\p{L}]",
+          "includeAnnotations": false
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L $this.label",
+    "detailFVLItem": true,
+    "isFormWidth" : false,
+    "isContainerWidth" : false,
+    "toggleDisplayFormat": "YesNo"
+  }
+}
