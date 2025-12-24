@@ -1,7 +1,7 @@
 {
     "name": "Novitates_NTDXComponents_SmartDateTime",
-    "label": "DateTime rendered with custom format",
-    "description": "DateTime rendered with custom format",
+    "label": "Custom Format DateTime",
+    "description": "Custom Format DateTime",
     "organization": "Novitates",
     "version": "0.0.1",
     "library": "NTDXComponents",
