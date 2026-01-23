@@ -1,0 +1,86 @@
+{
+  "name": "Novitates_NTDXComponents_SmartBanner",
+  "label": "Smart Banner",
+  "description": "Smart Banner",
+  "organization": "Novitates",
+  "version": "0.0.1",
+  "library": "NTDXComponents",
+  "componentKey": "Novitates_NTDXComponents_SmartBanner",
+  "type": "Widget",
+  "subtype": ["PAGE","CASE"],
+  "subtypeLabel": "PAGE and CASE",
+  "icon": "OneColumnPage.svg",
+  "properties": [
+    {
+        "name": "variant",
+        "label": "variant",
+        "format": "SELECT",
+        "defaultValue": "success",
+        "source": [
+            {
+                "key": "success",
+                "value": "success"
+            },
+            {
+                "key": "info",
+                "value": "info"
+            },
+            {
+                "key": "warning",
+                "value": "warning"
+            },
+            {
+                "key": "urgent",
+                "value": "urgent"
+            }
+        ]
+    },
+    {
+        "name": "dataPage",
+        "label": "Data Page name to get the messages",
+        "format": "TEXT"
+    },
+    {
+        "name": "dismissible",
+        "label": "Is the banner dismissible",
+        "format": "BOOLEAN",
+        "defaultValue": false
+    },
+    {
+        "name": "dismissAction",
+        "label": "Case Wide Action ID to dismiss the banner",
+        "format": "TEXT"
+    },
+    {
+        "name": "defaultExpanded",
+        "label": "Load banner expanded by default",
+        "format": "BOOLEAN",
+        "defaultValue": true,
+        "description": "When enabled, the banner will always load expanded regardless of message count. When disabled, it follows OOTB behavior (expanded for 1-2 messages, collapsed for 3+ messages)."
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "Create operator",
+    "title": "Create operator",
+    "createLabel": "@L Created",
+    "updateLabel": "@L Updated",
+    "createOperator": "@USER .pxCreateOperator",
+    "updateOperator": "@USER .pxUpdateOperator",
+    "createDateTime": "@P .pxCreateDateTime",
+    "updateDateTime": "@P .pxUpdateDateTime",
+    "resolveLabel": "@L Resolved",
+    "resolveOperator": "@USER .pyResolvedUserID",
+    "resolveDateTime": "@P .pyResolvedTimestamp"
+  }
+}
