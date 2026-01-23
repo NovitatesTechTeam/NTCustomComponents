@@ -124,18 +124,17 @@ const setPCore = () => {
         },
       };
     },
+    getUserApi: () => {
+      return {
+        getOperatorDetails: () => {
+          return new Promise(resolve => {
+            // @ts-ignore
+            resolve(operatorDetails);
+          });
+        }
+      } as any;
+    },
   };
-};
-
-window.PCore.getUserApi = () => {
-  return {
-    getOperatorDetails: () => {
-      return new Promise(resolve => {
-        // @ts-ignore
-        resolve(operatorDetails);
-      });
-    }
-  } as any;
 };
 
 export const BaseNovitatesNtdxComponentsSmartBanner: Story = (args: any) => {
