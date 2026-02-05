@@ -8,7 +8,18 @@ import { configProps, operatorDetails } from './mock';
 const meta: Meta<typeof NovitatesNtdxComponentsSmartBanner> = {
   title: 'NovitatesNtdxComponentsSmartBanner',
   component: NovitatesNtdxComponentsSmartBanner,
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  argTypes: {
+    headingText: {
+      control: 'text',
+      description: 'Custom heading shown above the banner messages.',
+    },
+    headingTag: {
+      control: 'select',
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      description: 'HTML heading level for accessibility.',
+    },
+  },
 };
 
 export default meta;
@@ -177,6 +188,9 @@ return (
 BaseNovitatesNtdxComponentsSmartBanner.args = {
   variant: 'success',
   dataPage: 'D_error',
+  headingText: 'Important notices',
+  headingTag: 'h2',
   dismissible: false,
   dismissAction: '',
+  defaultExpanded: true,
 };
