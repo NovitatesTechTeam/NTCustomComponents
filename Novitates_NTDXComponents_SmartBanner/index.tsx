@@ -1,7 +1,17 @@
+/**
+ * Smart Banner – displays messages from a data page with optional custom heading.
+ *
+ * Example: use headingText and headingTag for a custom banner title and semantics
+ * - In App Studio: set "Heading text" (e.g. "Important notices") and "Heading tag" (e.g. h2).
+ * - In code/config: pass headingText="Review required" and headingTag="h3" for a smaller semantic heading.
+ * - headingTag affects only the HTML element (h1–h6) for accessibility; styling is controlled by the Banner variant.
+ */
 import { withConfiguration, Banner } from '@pega/cosmos-react-core';
 import { useCallback, useEffect, useState, useRef } from 'react';
 import MainContent from './styles';
 import '../shared/create-nonce';
+
+type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type NovitatesNtdxComponentsSmartBannerProps = {
   /** Display type of rendering
@@ -10,6 +20,13 @@ type NovitatesNtdxComponentsSmartBannerProps = {
   variant: 'success' | 'info' | 'warning' | 'urgent';
   /** Name of the data page to get the messages */
   dataPage?: string;
+  /** Custom heading text shown above the banner messages. When not set, the OOTB Banner uses a default heading per variant. */
+  headingText?: string;
+  /**
+   * The HTML heading tag used to render the heading (for accessibility/semantics). Agnostic to visual styling.
+   * @default 'h2'
+   */
+  headingTag?: HeadingTag;
   /** Set this boolean to true if the banner can be dismissed
    * @default false
    */
@@ -25,7 +42,7 @@ type NovitatesNtdxComponentsSmartBannerProps = {
 };
 
 export const NovitatesNtdxComponentsSmartBanner = (props: NovitatesNtdxComponentsSmartBannerProps) => {
-  const { variant = 'success', dataPage = '', dismissible = false, dismissAction = '', defaultExpanded = true, getPConnect } = props;
+  const { variant = 'success', dataPage = '', headingText, headingTag, dismissible = false, dismissAction = '', defaultExpanded = true, getPConnect } = props;
   const [messages, setMessages] = useState<Array<string>>([]);
   const [isDismissed, setIsDismissed] = useState(false);
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -203,10 +220,22 @@ export const NovitatesNtdxComponentsSmartBanner = (props: NovitatesNtdxComponent
     }
   }, [messages, defaultExpanded]);
 
+  /* Normalize headingTag to lowercase so it works as an HTML element (React expects lowercase for intrinsics like h1–h6). */
+  const resolvedHeadingTag: HeadingTag | undefined =
+    typeof headingTag === 'string' && /^h[1-6]$/i.test(headingTag)
+      ? (headingTag.toLowerCase() as HeadingTag)
+      : undefined;
+
   if (messages?.length === 0 || isDismissed) return null;
   return (
-    <MainContent ref={bannerRef}>
-      <Banner variant={variant} messages={messages} onDismiss={dismissible ? onDismiss : undefined} />
+    <MainContent ref={bannerRef} $headingTag={resolvedHeadingTag ?? 'h2'}>
+      <Banner
+        variant={variant}
+        messages={messages}
+        headingText={headingText}
+        headingTag={resolvedHeadingTag}
+        onDismiss={dismissible ? onDismiss : undefined}
+      />
     </MainContent>
   );
 };
