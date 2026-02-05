@@ -1,86 +1,125 @@
 {
-  "name": "Novitates_NTDXComponents_SmartBanner",
-  "label": "Smart Banner",
-  "description": "Smart Banner",
-  "organization": "Novitates",
-  "version": "0.0.1",
-  "library": "NTDXComponents",
-  "componentKey": "Novitates_NTDXComponents_SmartBanner",
-  "type": "Widget",
-  "subtype": ["PAGE","CASE"],
-  "subtypeLabel": "PAGE and CASE",
-  "icon": "OneColumnPage.svg",
-  "properties": [
-    {
-        "name": "variant",
-        "label": "variant",
-        "format": "SELECT",
-        "defaultValue": "success",
-        "source": [
-            {
-                "key": "success",
-                "value": "success"
-            },
-            {
-                "key": "info",
-                "value": "info"
-            },
-            {
-                "key": "warning",
-                "value": "warning"
-            },
-            {
-                "key": "urgent",
-                "value": "urgent"
-            }
-        ]
-    },
-    {
-        "name": "dataPage",
-        "label": "Data Page name to get the messages",
-        "format": "TEXT"
-    },
-    {
-        "name": "dismissible",
-        "label": "Is the banner dismissible",
-        "format": "BOOLEAN",
-        "defaultValue": false
-    },
-    {
-        "name": "dismissAction",
-        "label": "Case Wide Action ID to dismiss the banner",
-        "format": "TEXT"
-    },
-    {
-        "name": "defaultExpanded",
-        "label": "Load banner expanded by default",
-        "format": "BOOLEAN",
-        "defaultValue": true,
-        "description": "When enabled, the banner will always load expanded regardless of message count. When disabled, it follows OOTB behavior (expanded for 1-2 messages, collapsed for 3+ messages)."
-    },
-    {
-      "label": "Conditions",
-      "format": "GROUP",
-      "properties": [
+    "name": "Novitates_NTDXComponents_SmartBanner",
+    "label": "Smart Banner",
+    "description": "Smart Banner",
+    "organization": "Novitates",
+    "version": "0.0.1",
+    "library": "NTDXComponents",
+    "componentKey": "Novitates_NTDXComponents_SmartBanner",
+    "type": "Widget",
+    "subtype": [
+        "PAGE",
+        "CASE"
+    ],
+    "subtypeLabel": "PAGE and CASE",
+    "icon": "OneColumnPage.svg",
+    "properties": [
         {
-          "name": "visibility",
-          "label": "Visibility",
-          "format": "VISIBILITY"
+            "name": "variant",
+            "label": "variant",
+            "format": "SELECT",
+            "defaultValue": "success",
+            "source": [
+                {
+                    "key": "success",
+                    "value": "success"
+                },
+                {
+                    "key": "info",
+                    "value": "info"
+                },
+                {
+                    "key": "warning",
+                    "value": "warning"
+                },
+                {
+                    "key": "urgent",
+                    "value": "urgent"
+                }
+            ]
+        },
+        {
+            "name": "dataPage",
+            "label": "Data Page name to get the messages",
+            "format": "TEXT"
+        },
+        {
+            "name": "headingText",
+            "label": "Heading text",
+            "format": "TEXT",
+            "description": "Custom heading shown above the banner messages. Leave empty to use the default heading per variant."
+        },
+        {
+            "name": "headingTag",
+            "label": "Heading tag",
+            "format": "SELECT",
+            "defaultValue": "h2",
+            "description": "HTML heading level for accessibility (h1–h6).",
+            "source": [
+                { "key": "h1", "value": "h1" },
+                { "key": "h2", "value": "h2" },
+                { "key": "h3", "value": "h3" },
+                { "key": "h4", "value": "h4" },
+                { "key": "h5", "value": "h5" },
+                { "key": "h6", "value": "h6" }
+            ]
+        },
+        {
+            "name": "dismissible",
+            "label": "Is the banner dismissible",
+            "format": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "dismissAction",
+            "label": "Case Wide Action ID to dismiss the banner",
+            "format": "TEXT"
+        },
+        {
+            "name": "defaultExpanded",
+            "label": "Load banner expanded by default",
+            "format": "BOOLEAN",
+            "defaultValue": true,
+            "description": "When enabled, the banner will always load expanded regardless of message count. When disabled, it follows OOTB behavior (expanded for 1-2 messages, collapsed for 3+ messages)."
+        },
+        {
+            "label": "Conditions",
+            "format": "GROUP",
+            "properties": [
+                {
+                    "name": "visibility",
+                    "label": "Visibility",
+                    "format": "VISIBILITY"
+                }
+            ]
+        },
+        {
+            "format": "LABEL",
+            "label": "About",
+            "name": "PegaAboutLabel",
+            "variant": "h3"
+        },
+        {
+            "format": "LABEL",
+            "label": "Novitates_NTDXComponents 0.0.1, Tue Feb 03 2026, 25.1.1-199",
+            "name": "PegaAboutData",
+            "variant": "primary"
         }
-      ]
-    }
-  ],
-  "defaultConfig": {
-    "label": "Create operator",
-    "title": "Create operator",
-    "createLabel": "@L Created",
-    "updateLabel": "@L Updated",
-    "createOperator": "@USER .pxCreateOperator",
-    "updateOperator": "@USER .pxUpdateOperator",
-    "createDateTime": "@P .pxCreateDateTime",
-    "updateDateTime": "@P .pxUpdateDateTime",
-    "resolveLabel": "@L Resolved",
-    "resolveOperator": "@USER .pyResolvedUserID",
-    "resolveDateTime": "@P .pyResolvedTimestamp"
-  }
+    ],
+    "defaultConfig": {
+        "label": "Create operator",
+        "title": "Create operator",
+        "createLabel": "@L Created",
+        "updateLabel": "@L Updated",
+        "createOperator": "@USER .pxCreateOperator",
+        "updateOperator": "@USER .pxUpdateOperator",
+        "createDateTime": "@P .pxCreateDateTime",
+        "updateDateTime": "@P .pxUpdateDateTime",
+        "resolveLabel": "@L Resolved",
+        "resolveOperator": "@USER .pyResolvedUserID",
+        "resolveDateTime": "@P .pyResolvedTimestamp"
+    },
+    "buildDate": "2026-02-03T14:00:15.757Z",
+    "infinityVersion": "25.1.1-199",
+    "packageCosmosVersion": "8.8.0"
 }
